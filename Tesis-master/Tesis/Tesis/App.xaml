@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Tesis.Infraestructura"
+             x:Class="Tesis.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <infra:LocalizadorInstancia x:Key="localizador"></infra:LocalizadorInstancia>
+            <x:String x:Key="UrlAPI">https://tesisapi.azurewebsites.net</x:String>
+            <x:String x:Key="UrlPrefix">/api</x:String>
+            <x:String x:Key="UrlControllerLocal">/Locals</x:String>
+            <x:String x:Key="UrlControllerSucursal">/Sucursals</x:String>
+            <x:String x:Key="UrlControllerCategorias">/Categorias</x:String>
+            <x:String x:Key="UrlControllerLugaresHistoricos">/LugarHistoricoes</x:String>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
