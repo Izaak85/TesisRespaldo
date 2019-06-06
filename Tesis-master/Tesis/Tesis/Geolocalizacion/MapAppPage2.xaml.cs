@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+using Map = Xamarin.Forms.Maps.Map;
+using Map2 = Xamarin.Essentials.Map;
 
 /* 30/5/2019 
   En esta clase se instancia el mapa de google para su utilización, además de manejar la geolocalización para mostrar ubicaciones
@@ -25,11 +28,12 @@ namespace Tesis.Geolocalizacion
     public partial class MapAppPage2 : ContentPage
 
     {
+       
 
-        
         public MapAppPage2(double lat, double lon, string calle)
         {
             InitializeComponent();
+            
             /* Aqui simplemente se crea un boton que se utilizará para mostrar nuestra posición 
              Tras una actualización esta idea ha sido desechada para instanciar la posición del usuario y  
               la ubicación deseada por lo que este código quedará comentado 
@@ -48,16 +52,17 @@ namespace Tesis.Geolocalizacion
             /* Botón que se utilizará para trazar la dirección desde el punto de origen hasta 
              la localización deseada, es posible que este botón sea desechado también en pos de instanciar el mapa con la ruta trazada
              
+            */
             Button button2 = new Button()
             {
-                Text = "Camino desde Mall al Hospital",
+                Text = "Trazar la ruta",
                 TextColor = Color.White,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = Color.Accent
             };
 
-            */
+
 
             // Se crea la unidad logica del mapa que utilizaremos
             Map map = new Map // Se declara la variable map
@@ -67,12 +72,12 @@ namespace Tesis.Geolocalizacion
                 VerticalOptions = LayoutOptions.FillAndExpand, // Variable para definir el alto del mapa, en este caso que llene y se expanda verticalmente
                                                                // por toda la pantalla
                 HorizontalOptions = LayoutOptions.FillAndExpand, // Lo mismo que la de arriba pero horizontalment
+                
 
 
-
-            };
+        };
             // Para mover el mapa de su posición por default 
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-20.2203600, -70.1391300), Distance.FromMiles(10)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(-20.2203600, -70.1391300), Distance.FromMiles(1)));
 
             //Declaración de una variable tipo pin
             var pin3 = new Pin()
@@ -116,6 +121,18 @@ namespace Tesis.Geolocalizacion
             };
 
     */
+             
+            button2.Clicked += async (object sender, EventArgs e) =>
+            {
+
+                var location = new Location(lat, lon);
+                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+                await Map2.OpenAsync(location, options);
+
+
+
+            };
+
 
             // El layout donde estarán tanto el mapa como el botón
             StackLayout stack = new StackLayout()

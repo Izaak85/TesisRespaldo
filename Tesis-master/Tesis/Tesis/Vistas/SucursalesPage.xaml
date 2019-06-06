@@ -61,10 +61,7 @@
                                     
                                         Text="Detalles" BackgroundColor="LightBlue"  FontSize="Small" WidthRequest="100" HeightRequest="40" VerticalOptions="Center" 
                                             Command="{Binding SucursalesDetalleCommand}"></Button>
-                                    <Button Grid.Column="3"
                                     
-                                        Text="mapa" BackgroundColor="LightBlue"  FontSize="Small" WidthRequest="100" HeightRequest="40" VerticalOptions="Center" 
-                                            Command="{Binding MapaCommand}"></Button>
                                 </Grid>
                             </Frame>
                         </ViewCell>
