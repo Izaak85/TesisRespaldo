@@ -12,7 +12,7 @@ namespace Tesis.VistaModelo
     public class CategoriaItemVModelo : Categoria
     {
         private ApiServicio apiservicio;
-        private Categoria cat;
+     //   private Categoria cat;
         public CategoriaItemVModelo()
         {
             this.apiservicio = new ApiServicio();

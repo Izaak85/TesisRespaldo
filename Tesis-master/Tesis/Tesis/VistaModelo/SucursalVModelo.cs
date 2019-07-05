@@ -27,6 +27,7 @@ namespace Tesis.VistaModelo
         private string nombreLocal;
         private string descripcionLocal;
         private string pagWebLocal;
+        private string descripcionEng;
         //propiedades
         public ObservableCollection<SucursalItemVModel> Sucursales
         {
@@ -47,6 +48,12 @@ namespace Tesis.VistaModelo
         {
             get { return this.pagWebLocal; }
             set { this.SetValue(ref this.pagWebLocal, value); }
+        }
+
+        public string DescripcionEng
+        {
+            get { return this.descripcionEng; }
+            set { this.SetValue(ref this.descripcionEng, value); }
         }
         public Local Local
         {
@@ -82,7 +89,7 @@ namespace Tesis.VistaModelo
           this.NombreLocal = local.nombreLocal;
             this.DescripcionLocal = local.descripcion;
             this.PagWebLocal = local.pagWeb;
-            
+            this.DescripcionEng = local.descripcionEng;
             this.LoadSucursales();
            
         }
